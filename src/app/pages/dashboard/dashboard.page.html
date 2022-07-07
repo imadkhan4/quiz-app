@@ -30,9 +30,9 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td colspan=3>{{result.category}}</td>
-                        <td colspan=3>{{result.type}}</td>
-                        <td colspan=3>{{result.correctAnswers}} </td>
+                        <td colspan=3>{{result.category | translate}}</td>
+                        <td colspan=3>{{result.type | translate}}</td>
+                        <td colspan=3>{{result.correctAnswers }} </td>
                         <td colspan=3> {{result.incorrectAnswers}}  </td>
                       </tr>
                     </tbody>
@@ -41,7 +41,7 @@
                       <tr>
                         <td colspan=3>{{'total_marks' | translate }} <b> {{result.totalMarks}}</b> </td>
                         <td colspan=4>{{'obt_marks' | translate }} <b> {{result.correctAnswers}}</b> </td>
-                        <td colspan=4>{{'result' | translate }}: <b> {{result.result}}</b></td>
+                        <td colspan=4>{{'result' | translate }}: <b> {{result.result | translate}}</b></td>
                       </tr>
                     </tfoot>
                   </table>

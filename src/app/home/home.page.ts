@@ -92,7 +92,7 @@ export class HomePage implements OnInit {
         incorrectAnswers,
         category: this.params.category,
         totalMarks: this.params.amount,
-        result: correctAnswers >= 5 ? 'Pass' : 'Fail',
+        result: correctAnswers >= 5 ? 'pass' : 'fail',
         type: this.params.type
 
       }

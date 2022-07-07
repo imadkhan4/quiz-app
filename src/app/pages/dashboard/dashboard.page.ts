@@ -11,11 +11,11 @@ import { FlushService } from 'src/app/_services/flush.service';
 })
 export class DashboardPage implements OnInit {
   result: any;
-  resultLegends: Label[] = ["correct", "incorrect"];
+  resultLegends: Label[] = [this.translate.instant('correct'), this.translate.instant('incorrect')];
   resultChartData: ChartDataSets[] = [
     {
       data: [],
-      label: this.translate.instant('total_visitors')
+      label: ''
     }];
   resultChartOptions = {
     responsive: true,
@@ -30,9 +30,18 @@ export class DashboardPage implements OnInit {
   resultChartColors: any[] = [{ backgroundColor: ['#24D724', '#FF0000'] }];
   constructor(
     private translate: TranslateService,
-    private flushService: FlushService
+    private _flushService: FlushService
   ) {
-    this.result = flushService.Data;
+    this.result = _flushService.Data;
+    this.result = {
+      name:'',
+      correctAnswers :5,
+      incorrectAnswers :5,
+      category: 9,
+      totalMarks: 10,
+      result: 'pass',
+      type: 'multiple'
+    }
   }
 
   ngOnInit() {

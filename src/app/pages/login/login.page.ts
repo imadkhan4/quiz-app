@@ -20,14 +20,30 @@ export class LoginPage {
     categories = [
         {
             id: 1,
-            name: 'cate_1',
+            name: 'general_knowledge',
             value: '9'
         },
         {
+            id: 2,
+            name: 'computer_science',
+            value: '18'
+        },
+        {
+            id: 3,
+            name: 'art',
+            value: '25'
+        },
+        {
             id: 4,
-            name: 'cate_1',
-            value: '9'
+            name: 'politics',
+            value: '24'
+        },
+        {
+            id: 5,
+            name: 'sports',
+            value: '23'
         }
+
     ];
     difficulties = [
         {
@@ -48,12 +64,12 @@ export class LoginPage {
     ]
     types = [
         {
-            name: 'multiple choice',
+            name: 'multiple_choice',
             value: 'multiple'
         },
         {
-            name: 'True/False',
-            value: 'True/False'
+            name: 'true_false',
+            value: 'boolean'
         },
     ]
     language: string;
@@ -99,7 +115,6 @@ export class LoginPage {
         if (this.welcomeForm.invalid) {
             return;
         }
-        console.log(this.welcomeForm.value.name)
         this.user.name = this.welcomeForm.value.name;
         console.log(this.user)
         localStorage.setItem('quiz_user', JSON.stringify(this.user));

@@ -27,7 +27,6 @@
   "medium": "Medium!",
   "hard": "Hard",
   "multiple": "Multiple Choice",
-  "true_false": "True False",
   "welcome": "Welcome",
   "quiz_result": "Quiz Summary",
   "result_card": "Quiz Summary",
@@ -40,5 +39,16 @@
   "total_marks": "Total Marks:",
   "obt_marks":"Obt Marks:",
   "following_is_your_quiz_summary":"Following is your Quiz summary",
-  "name_required":"Name required"
+  "general_knowledge":"General Knowledge",
+  "computer_science":"Computer Science",
+  "art":"Art",
+  "politics":"Politics",
+  "sports":"Sports",
+  "multiple_choice":"Multiple Choice",
+  "true_false":"True / False",
+  "name_required":"Name required",
+  "please_attempt_all_the_questions":"Please Attempt all the questions",
+  "pass":"Pass",
+  "fail":"Fail"
+
 }
