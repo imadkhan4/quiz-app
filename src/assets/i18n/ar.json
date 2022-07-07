@@ -47,5 +47,6 @@
   "name_required":"الاسم مطلوب",
   "please_attempt_all_the_questions":"يرجى محاولة جميع الأسئلة",
   "pass":"مرر",
-  "fail":"يفشل"
+  "fail":"يفشل",
+  "quiz_app":"تطبيق مسابقة"
 }

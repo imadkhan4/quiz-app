@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 
 })
 export class LoginPage {
-    direction: string;
+
     welcomeForm: FormGroup;
     submitted = false;
     user = {
@@ -72,14 +72,11 @@ export class LoginPage {
             value: 'boolean'
         },
     ]
-    language: string;
-
     constructor(
         public navCtrl: NavController,
         private router: Router,
         private translate: TranslateService,
     ) {
-        this.language = this.translate.currentLang;
     }
 
     ngOnInit() {
@@ -94,21 +91,6 @@ export class LoginPage {
             }
         );
     }
-    onClickLang(event) {
-        if (event == localStorage.getItem("vLang")) {
-            // this._toastService.danger(this.translate.instant('the_selected_language_already_applied'));
-        } else {
-            localStorage.setItem('vLang', event);
-            this.translate.use(event);
-            this.translate.onLangChange.subscribe(event => {
-                document.dir = this.direction = (event.lang === 'en' ? 'ltr' : 'rtl');
-                document.documentElement.setAttribute('lang', event.lang);
-            });
-        }
-
-    }
-
-
     get f() { return this.welcomeForm.controls; }
     async onRegister() {
         this.submitted = true;

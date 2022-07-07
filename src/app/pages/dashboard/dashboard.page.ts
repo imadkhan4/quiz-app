@@ -33,15 +33,6 @@ export class DashboardPage implements OnInit {
     private _flushService: FlushService
   ) {
     this.result = _flushService.Data;
-    this.result = {
-      name:'',
-      correctAnswers :5,
-      incorrectAnswers :5,
-      category: 9,
-      totalMarks: 10,
-      result: 'pass',
-      type: 'multiple'
-    }
   }
 
   ngOnInit() {

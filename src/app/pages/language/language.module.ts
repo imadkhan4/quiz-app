@@ -1,24 +1,23 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module';
-import { LanguagePage } from '../language/language.page';
-import { LoginPage } from './login.page';
+import { LanguagePage } from './language.page';
+
+
 
 @NgModule({
   imports: [
-  SharedModule,
+    SharedModule,
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: LoginPage
+        component: LanguagePage
       }
     ])
   ],
-  declarations: [LoginPage, LanguagePage],
-  exports:[LoginPage]
+  declarations: [LanguagePage],
+  exports:[LanguagePage]
 })
-export class LoginPageModule {}
+export class LanguagePageModule {}

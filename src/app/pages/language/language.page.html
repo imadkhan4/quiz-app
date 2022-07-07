@@ -1,0 +1,8 @@
+<ion-buttons class="lr-margin" slot="primary" >
+  <ion-select placeholder="{{'change_language'| translate}}" okText="{{'okay' | translate}}"
+    cancelText="{{'cancel' | translate}}" [(ngModel)]="language" (ngModelChange)="onClickLang(language)" >
+    <ion-select-option *ngFor="let lang of languages"  value="{{lang.code}}"  >
+      {{lang.name |translate}}
+    </ion-select-option>
+  </ion-select>
+</ion-buttons>

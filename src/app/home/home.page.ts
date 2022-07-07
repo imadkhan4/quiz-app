@@ -15,7 +15,6 @@ import { ApiService } from './../_services/api.service';
 export class HomePage implements OnInit {
 
   user: any;
-  language: string;
   isListItemOpened: boolean = false;
   index: number = 0;
   autoManufacturers;
@@ -24,8 +23,6 @@ export class HomePage implements OnInit {
   questions: any = [];
   params: any;
   attemptQuestions = 0;
-
-
   selectedValue: string;
   constructor(
     private _apiService: ApiService,
@@ -36,9 +33,7 @@ export class HomePage implements OnInit {
     private translate: TranslateService
 
   ) {
-    this.language = localStorage.getItem("vLang");
     this.user = JSON.parse(localStorage.getItem("quiz_user"));
-    console.log(this.user)
     this.route.queryParams
       .subscribe(params => {
         this.params = params;
@@ -48,9 +43,7 @@ export class HomePage implements OnInit {
     this.getQuestions()
   }
 
-
   getQuestions() {
-    console.log(this.params)
     this.questions = [];
     this._apiService.get(this.params).subscribe(
       (data) => {
@@ -60,13 +53,11 @@ export class HomePage implements OnInit {
           element.selectedAnswer = '';
           element.disabled = false;
         });
-        console.log(this.questions)
       },
       error => {
         console.log(error)
       });
   }
-
   checkValue(ev, index) {
     ++this.attemptQuestions;
     this.questions.results[index].selectedAnswer = ev.detail.value;
@@ -94,7 +85,6 @@ export class HomePage implements OnInit {
         totalMarks: this.params.amount,
         result: correctAnswers >= 5 ? 'pass' : 'fail',
         type: this.params.type
-
       }
       this.flushService.Data = result;
       this.router.navigate(['dashboard']);

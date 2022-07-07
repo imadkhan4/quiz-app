@@ -49,6 +49,7 @@
   "name_required":"Name required",
   "please_attempt_all_the_questions":"Please Attempt all the questions",
   "pass":"Pass",
-  "fail":"Fail"
+  "fail":"Fail",
+  "quiz_app":"Quiz App"
 
 }
