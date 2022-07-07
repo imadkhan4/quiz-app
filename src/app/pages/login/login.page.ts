@@ -1,9 +1,7 @@
-import { ToastService } from 'src/app/_services/toast-service';
-import { environment } from 'src/environments/environment';
-import { ApiService } from '../../_services/api.service';
+
 import { Component } from '@angular/core';
-import { LoadingController, NavController } from '@ionic/angular';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 
@@ -16,6 +14,9 @@ export class LoginPage {
     direction: string;
     welcomeForm: FormGroup;
     submitted = false;
+    user = {
+        name: '',
+    };
     categories = [
         {
             id: 1,
@@ -90,7 +91,7 @@ export class LoginPage {
         }
 
     }
-  
+
 
     get f() { return this.welcomeForm.controls; }
     async onRegister() {
@@ -98,7 +99,10 @@ export class LoginPage {
         if (this.welcomeForm.invalid) {
             return;
         }
-        localStorage.setItem('quiz_user', this.welcomeForm.value.name);
+        console.log(this.welcomeForm.value.name)
+        this.user.name = this.welcomeForm.value.name;
+        console.log(this.user)
+        localStorage.setItem('quiz_user', JSON.stringify(this.user));
         console.log(this.welcomeForm.value.name)
         this.router.navigate(
             ['/home'],

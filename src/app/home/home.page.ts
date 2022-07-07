@@ -1,10 +1,11 @@
-import { ApiService } from './../_services/api.service';
+
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FlushService } from '../_services/flush.service';
 import { ToastService } from '../_services/toast-service';
 import { TranslateService } from '@ngx-translate/core';
+import { ApiService } from './../_services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -36,6 +37,8 @@ export class HomePage implements OnInit {
 
   ) {
     this.language = localStorage.getItem("vLang");
+    this.user = JSON.parse(localStorage.getItem("quiz_user"));
+    console.log(this.user)
     this.route.queryParams
       .subscribe(params => {
         this.params = params;
@@ -65,20 +68,16 @@ export class HomePage implements OnInit {
   }
 
   checkValue(ev, index) {
-    // console.log(ev)
     ++this.attemptQuestions;
     this.questions.results[index].selectedAnswer = ev.detail.value;
     this.questions.results[index].disabled = true;
-    console.log(this.attemptQuestions)
   }
   onClickReset() {
-
+    location.reload();
   }
   onClickResult() {
     let correctAnswers = 0;
     let incorrectAnswers = 0;
-    console.log(this.attemptQuestions)
-    console.log(this.questions.results.length)
     if (this.attemptQuestions === this.questions.results.length) {
       this.questions.results.forEach(element => {
         if (element.selectedAnswer === element.correct_answer) {
@@ -88,24 +87,22 @@ export class HomePage implements OnInit {
         }
       });
       let result = {
-        name: 'imad khan',
+        name: this.user.name,
         correctAnswers,
-        incorrectAnswers
-  
+        incorrectAnswers,
+        category: this.params.category,
+        totalMarks: this.params.amount,
+        result: correctAnswers >= 5 ? 'Pass' : 'Fail',
+        type: this.params.type
+
       }
       this.flushService.Data = result;
       this.router.navigate(['dashboard']);
     } else {
       this._toastService.danger(this.translate.instant('please_attempt_all_the_questions'), 'bottom', 4000);
     }
-      
-    
-  }
-  onClickCancel() {
+
 
   }
-
-
-
 
 }

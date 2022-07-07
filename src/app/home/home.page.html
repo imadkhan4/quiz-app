@@ -3,8 +3,6 @@
     <ion-buttons slot="start">
       <ion-menu-button color=light></ion-menu-button>
     </ion-buttons>
-
-    <ion-icon class="cart" name="bag-new"></ion-icon>
     <ion-title>{{'quiz' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -53,15 +51,12 @@
         </ion-card>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col size="4">
+    <ion-row *ngIf="questions.results">
+      <ion-col size="6">
         <ion-button color="primary" (click)="onClickReset()" expand="block">{{'restart_quiz' | translate}}</ion-button>
       </ion-col>
-      <ion-col size="4">
+      <ion-col size="6">
         <ion-button color="primary" (click)="onClickResult()" expand="block">{{'result' | translate}}</ion-button>
-      </ion-col>
-      <ion-col size="4">
-        <ion-button color="primary" (click)="onClickCancel()" expand="block">{{'cancel' | translate}}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
