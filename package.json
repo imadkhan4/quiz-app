@@ -33,7 +33,7 @@
     "chart.js": "^2.9.3",
     "cordova-plugin-file": "^6.0.2",
     "core-js": "^3.6.5",
-    "firebase": "^9.6.10",
+    "firebase": "^9.8.4",
     "ng2-charts": "^2.3.2",
     "npm-check-updates": "^6.0.0",
     "rxjs": "~6.5.5",
