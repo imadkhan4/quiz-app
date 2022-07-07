@@ -1,0 +1,69 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.invalid-feedback {
+    font-size: 0.8rem;
+    color: red;
+    margin: 0.3rem 0.8rem;
+}
+
+.img-center {
+    height: 100%;
+    margin: auto;
+    display: block;
+}
+
+
+
+
+.border {
+    border: 1px solid grey;
+    margin: 1rem 0.7rem;
+}
+
+.main-header4 {
+    //letter-spacing: -1px;
+    font-size: 22px !important;
+    font-weight: 300 !important;
+}
+
+
+.bg-white {
+    --background: #fff;
+}
+
+.black-font {
+    color: #000;
+}
+
+.font-1rem {
+    font-size: 0.8rem;
+}
+
+.lr-margin {
+    margin: 0rem 2rem;
+}

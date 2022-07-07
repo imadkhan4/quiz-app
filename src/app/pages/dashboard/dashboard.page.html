@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="{{ 'back' | translate }}"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="main-header4">{{'quiz_result' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios">
+  <ion-grid fixed class="ion-no-padding">
+    <div *ngIf="result">
+      <div>
+        <ion-row>
+          <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
+            <ion-card>
+              <ion-card-header>
+                <h4>{{'mr_mrs' | translate}} <b>{{ result.name | titlecase}}</b>  {{'following_is_your_quiz_summary' | translate}}</h4>
+              </ion-card-header>
+              <ion-card-content >
+                <div class="container">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th colspan=3>{{'subject' | translate }}</th>
+                        <th colspan=3>{{'difficulty' | translate }}</th>
+                        <th colspan=3>{{'correct' | translate }}</th>
+                        <th colspan=3>{{'incorrect' | translate }}</th>
+                      <tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td colspan=3>{{result.category}}</td>
+                        <td colspan=3>{{result.type}}</td>
+                        <td colspan=3>{{result.correctAnswers}} </td>
+                        <td colspan=3> {{result.incorrectAnswers}}  </td>
+                      </tr>
+                    </tbody>
+                    <br><br><br>
+                    <tfoot>
+                      <tr>
+                        <td colspan=3>{{'total_marks' | translate }} <b> {{result.totalMarks}}</b> </td>
+                        <td colspan=4>{{'obt_marks' | translate }} <b> {{result.correctAnswers}}</b> </td>
+                        <td colspan=4>{{'result' | translate }}: <b> {{result.result}}</b></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
+            <ion-card>
+              <ion-card-header>
+                <h4> {{'result_card' | translate}}</h4>
+              </ion-card-header>
+              <ion-card-content>
+                <canvas baseChart width="200" height="600" [datasets]="resultChartData" [labels]="resultLegends"
+                  [colors]="resultChartColors" [options]="resultChartOptions" chartType="doughnut">
+                </canvas>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </ion-grid>
+</ion-content>

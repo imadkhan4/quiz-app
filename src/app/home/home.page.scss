@@ -1,0 +1,19 @@
+ion-grid {
+  --ion-grid-column-padding: 0.4rem;
+  border-collapse: collapse;
+  border-style: hidden;
+
+  ion-col {
+    border-bottom: 0;
+    border-right: 0;
+  }
+}
+
+.wrongItem {
+  --background: #ffb8b8 !important;
+}
+
+
+.rightItem {
+  --background: #9df78a;
+}

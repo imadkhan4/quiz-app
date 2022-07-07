@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color=light></ion-menu-button>
+    </ion-buttons>
+
+    <ion-icon class="cart" name="bag-new"></ion-icon>
+    <ion-title>{{'quiz' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed class="ion-no-padding">
+    <ion-row>
+      <ion-col size-lg="12" size-md="12" size-sm="12" size="12">
+        <ion-card *ngFor="let page of questions.results; index as i">
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="page.qestName" (ionChange)="checkValue($event , i)">
+              <ion-list-header>
+                <ion-label>
+                  {{page.question}}
+                </ion-label>
+              </ion-list-header>
+
+              <!-- start correct item  -->
+              <ion-item [ngClass]="page.selectedAnswer === page.correct_answer ? 'rightItem' :''">
+                <ion-label>{{page.correct_answer}}</ion-label>
+                <ion-radio [disabled]="page.disabled" value="{{page.correct_answer}}"></ion-radio>
+                <ion-icon *ngIf="page.selectedAnswer === page.correct_answer" slot="end" size="medium"
+                  name="checkmark-outline"></ion-icon>
+              </ion-item>
+              <!-- end correct item  -->
+
+
+              <!-- start wrong item  -->
+              <ion-item [ngClass]="
+              ( page.selectedAnswer == record ) &&
+              ( page.selectedAnswer !== '') &&  
+              ( page.selectedAnswer !== page.correct_answer) ? 'wrongItem':''"
+                *ngFor="let record of page.incorrect_answers; index as i">
+                <ion-label>{{record}}</ion-label>
+                <ion-radio [disabled]="page.disabled" value="{{record}}"></ion-radio>
+                <ion-icon *ngIf="
+                ( page.selectedAnswer == record ) &&
+                ( page.selectedAnswer !== '') &&  
+                ( page.selectedAnswer !== page.correct_answer)" slot="end" size="medium" name="close-outline">
+                </ion-icon>
+              </ion-item>
+              <!-- end wrong item  -->
+
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <ion-button color="primary" (click)="onClickReset()" expand="block">{{'restart_quiz' | translate}}</ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button color="primary" (click)="onClickResult()" expand="block">{{'result' | translate}}</ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button color="primary" (click)="onClickCancel()" expand="block">{{'cancel' | translate}}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

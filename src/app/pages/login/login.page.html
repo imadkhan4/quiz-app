@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="lr-margin" class="ion-text-capitalize">{{'welcome' | translate}}</ion-title>
+    <ion-buttons slot="primary" (click)="onClickLang(lang.code)">
+      <ion-icon class="lr-margin" size="large" name="language-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="bg-white">
+  <ion-grid fixed class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12">
+        <img class="img-center"
+          src="https://thumbs.dreamstime.com/b/quiz-show-people-tv-contest-answering-persons-podium-cartoon-conundrum-game-vector-concept-134503888.jpg"
+          style="width:17rem">
+      </ion-col>
+      <ion-col size-lg="12" size-md="12" size-sm="12" size="12">
+        <ion-card>
+          <ion-card-content>
+            <form [formGroup]="welcomeForm">
+              <ion-item class="border">
+                <ion-label position="floating">{{'enter_your_name' | translate}} :</ion-label>
+                <ion-input type="text" placeholder="{{'mr_khan' | translate}}" formControlName="name"
+                  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" required>
+                </ion-input>
+              </ion-item>
+              <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">{{'name_required' | translate}}</div>
+              </div>
+
+              <ion-item class="border">
+                <ion-label position="floating">{{'enter_number_of_questions' | translate}} :</ion-label>
+                <ion-input type="text" placeholder="{{'10' | translate}}" formControlName="numbOfQuestions"
+                  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.numbOfQuestions.errors }" required
+                  maxlength="10" minLength="3">
+                </ion-input>
+              </ion-item>
+              <div *ngIf="submitted && f.numbOfQuestions.errors" class="invalid-feedback">
+                <div *ngIf="f.numbOfQuestions.errors.required">{{'question_required' | translate}}</div>
+                <div *ngIf="f.numbOfQuestions.errors.maxlength">{{'max_question' | translate}}</div>
+                <div *ngIf="f.numbOfQuestions.errors.minLength">{{'min_required' | translate}}</div>
+              </div>
+
+              <ion-item class="border">
+
+                <ion-label position="floating">{{'select_category'| translate}}</ion-label>
+                <ion-select placeholder="{{'category'| translate}}" okText="{{'okay' | translate}}"
+                  cancelText="{{'cancel' | translate}}" formControlName="category">
+                  <ion-select-option *ngFor="let branch of categories" value="{{branch.value}}">{{branch.name |
+                    translate}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+              <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+                <div *ngIf="f.category.errors.required">{{'category_required' | translate}}</div>
+              </div>
+              <ion-item class="border">
+                <ion-label position="floating">{{'select_difficulty'| translate}}</ion-label>
+                <ion-select formControlName="difficulty" okText="{{'okay' | translate}}"
+                  cancelText="{{'cancel' | translate}}" placeholder="{{'select_difficulty'| translate}}">
+                  <ion-select-option *ngFor="let difficulty of difficulties" value="{{difficulty.value}}">
+                    {{difficulty.name |
+                    translate}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+              <div *ngIf="submitted && f.difficulty.errors" class="invalid-feedback">
+                <div *ngIf="f.difficulty.errors.required">{{'difficulty_required' | translate}}</div>
+              </div>
+
+              <ion-item class="border">
+                <ion-label position="floating">{{'select_type'| translate}}</ion-label>
+                <ion-select formControlName="type" okText="{{'okay' | translate}}" cancelText="{{'cancel' | translate}}"
+                  placeholder="{{'select_type'| translate}}">
+                  <ion-select-option *ngFor="let type of types" value="{{type.value}}">{{type.name | translate}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+              <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                <div *ngIf="f.type.errors.required">{{'question_type_required' | translate}}</div>
+              </div>
+
+              <ion-row>
+                <ion-col>
+                  <ion-button color="primary" (click)="onRegister()" expand="block">{{'start_quiz' | translate}}
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
