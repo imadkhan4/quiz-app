@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { ApiService } from './_services/api.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -19,7 +18,6 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private _apiService: ApiService,
     public navCtrl: NavController,
     private translate: TranslateService,
   ) {

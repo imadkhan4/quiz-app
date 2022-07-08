@@ -1,9 +1,7 @@
 
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-language',
