@@ -33,14 +33,12 @@ export class DashboardPage implements OnInit {
     private _flushService: FlushService
   ) {
     this.result = _flushService.Data;
-
-    console.log(this.result)
   }
 
   ngOnInit() {
-    if(this.result)
-     this.resultChartData[0].data.push(this.result?.correctAnswers, this.result.incorrectAnswers);
-    
+    if (this.result)
+      this.resultChartData[0].data.push(this.result?.correctAnswers, this.result.incorrectAnswers);
+
   }
 
 

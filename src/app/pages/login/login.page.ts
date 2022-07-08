@@ -95,9 +95,7 @@ export class LoginPage {
             return;
         }
         this.user.name = this.welcomeForm.value.name;
-        console.log(this.user)
         localStorage.setItem('quiz_user', JSON.stringify(this.user));
-        console.log(this.welcomeForm.value.name)
         this.router.navigate(
             ['/home'],
             {
