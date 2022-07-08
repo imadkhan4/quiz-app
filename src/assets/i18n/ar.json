@@ -48,5 +48,6 @@
   "please_attempt_all_the_questions":"يرجى محاولة جميع الأسئلة",
   "pass":"مرر",
   "fail":"يفشل",
-  "quiz_app":"تطبيق مسابقة"
+  "quiz_app":"تطبيق مسابقة",
+  "no_data_found":"لاتوجد بيانات ! "
 }

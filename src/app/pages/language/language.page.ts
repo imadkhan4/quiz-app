@@ -17,11 +17,11 @@ export class LanguagePage {
     languages = [
         {
             name: 'English',
-            code: 'ar'
+            code: 'en'
         },
         {
             name: 'العربية',
-            code: 'en'
+            code: 'ar'
 
         }
     ];

@@ -50,6 +50,7 @@
   "please_attempt_all_the_questions":"Please Attempt all the questions",
   "pass":"Pass",
   "fail":"Fail",
-  "quiz_app":"Quiz App"
+  "quiz_app":"Quiz App",
+  "no_data_found":"No Data Found !"
 
 }

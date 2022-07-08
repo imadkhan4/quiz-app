@@ -82,8 +82,9 @@ export class HomePage implements OnInit {
         correctAnswers,
         incorrectAnswers,
         category: this.params.category,
+        difficulty:this.params.difficulty,
         totalMarks: this.params.amount,
-        result: correctAnswers >= 5 ? 'pass' : 'fail',
+        result: ((correctAnswers/this.params.amount)*100) >= 50  ? 'pass' : 'fail',
         type: this.params.type
       }
       this.flushService.Data = result;

@@ -9,6 +9,15 @@
 
 <ion-content [fullscreen]="true">
   <ion-grid fixed class="ion-no-padding">
+    <ion-row *ngIf="questions.results?.length < 1">
+      <ion-col  size="12">
+        <ion-card>
+          <ion-card-content>
+            <p class="ion-text-center">  {{'no_data_found' | translate }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col size-lg="12" size-md="12" size-sm="12" size="12">
         <ion-card *ngFor="let page of questions.results; index as i">
@@ -51,7 +60,7 @@
         </ion-card>
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="questions.results">
+    <ion-row *ngIf="questions.results?.length  > 0">
       <ion-col size="6">
         <ion-button color="primary" (click)="onClickReset()" expand="block">{{'restart_quiz' | translate}}</ion-button>
       </ion-col>

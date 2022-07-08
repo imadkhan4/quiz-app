@@ -13,7 +13,7 @@
     <ion-row>
       <ion-col size="12">
         <img class="img-center"
-          src="https://thumbs.dreamstime.com/b/quiz-show-people-tv-contest-answering-persons-podium-cartoon-conundrum-game-vector-concept-134503888.jpg"
+          src="assets/img/quiz-logo.jpeg"
           style="width:17rem">
       </ion-col>
       <ion-col size-lg="12" size-md="12" size-sm="12" size="12">
@@ -39,8 +39,8 @@
               </ion-item>
               <div *ngIf="submitted && f.numbOfQuestions.errors" class="invalid-feedback">
                 <div *ngIf="f.numbOfQuestions.errors.required">{{'question_required' | translate}}</div>
-                <div *ngIf="f.numbOfQuestions.errors.maxlength">{{'max_question' | translate}}</div>
-                <div *ngIf="f.numbOfQuestions.errors.minLength">{{'min_required' | translate}}</div>
+                <div *ngIf="f.numbOfQuestions.errors.max">{{'max_question' | translate}}</div>
+                <div *ngIf="f.numbOfQuestions.errors.min">{{'min_required' | translate}}</div>
               </div>
 
               <ion-item class="border">

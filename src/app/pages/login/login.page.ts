@@ -80,11 +80,10 @@ export class LoginPage {
     }
 
     ngOnInit() {
-        // , Validators.minLength(3), Validators.maxLength(10)
         this.welcomeForm = new FormGroup(
             {
                 name: new FormControl('', [Validators.required]),
-                numbOfQuestions: new FormControl('', [Validators.required]),
+                numbOfQuestions: new FormControl('', [Validators.required,  Validators.min(3) , Validators.max(10)]),
                 category: new FormControl('', [Validators.required]),
                 difficulty: new FormControl('', [Validators.required]),
                 type: new FormControl('', [Validators.required]),
