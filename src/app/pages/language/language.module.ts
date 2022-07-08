@@ -17,7 +17,5 @@ import { LanguagePage } from './language.page';
       }
     ])
   ],
-  declarations: [LanguagePage],
-  exports:[LanguagePage]
 })
 export class LanguagePageModule {}
