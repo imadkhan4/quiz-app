@@ -38,7 +38,6 @@ export class DashboardPage implements OnInit {
   ngOnInit() {
     if (this.result)
       this.resultChartData[0].data.push(this.result?.correctAnswers, this.result.incorrectAnswers);
-
   }
 
 

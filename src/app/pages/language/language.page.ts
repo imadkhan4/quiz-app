@@ -31,9 +31,6 @@ export class LanguagePage {
         this.language = this.translate.currentLang;
     }
 
-    ngOnInit() {
-
-    }
     onClickLang(event) {
         localStorage.setItem('vLang', event);
         this.translate.use(event);

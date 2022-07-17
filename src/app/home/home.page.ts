@@ -17,13 +17,13 @@ export class HomePage implements OnInit {
   user: any;
   isListItemOpened: boolean = false;
   index: number = 0;
-  autoManufacturers;
   correct = [];
   incorrect = [];
   questions: any = [];
   params: any;
   attemptQuestions = 0;
   selectedValue: string;
+  isLoaderVisible = true;
   constructor(
     private _apiService: ApiService,
     private route: ActivatedRoute,
@@ -53,6 +53,7 @@ export class HomePage implements OnInit {
           element.selectedAnswer = '';
           element.disabled = false;
         });
+        this.isLoaderVisible = false;
       },
       error => {
         console.log(error)
@@ -82,9 +83,9 @@ export class HomePage implements OnInit {
         correctAnswers,
         incorrectAnswers,
         category: this.params.category,
-        difficulty:this.params.difficulty,
+        difficulty: this.params.difficulty,
         totalMarks: this.params.amount,
-        result: ((correctAnswers/this.params.amount)*100) >= 50  ? 'pass' : 'fail',
+        result: ((correctAnswers / this.params.amount) * 100) >= 50 ? 'pass' : 'fail',
         type: this.params.type
       }
       this.flushService.Data = result;
