@@ -5,7 +5,7 @@ Quiz App.
 
 ## Description
 
-A sample Demo App for Al-Muntazah.
+A sample Quiz Contester App 
 
 ## Getting Started
 
